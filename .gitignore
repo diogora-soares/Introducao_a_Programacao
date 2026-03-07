@@ -1,0 +1,12 @@
+# arquivos compactados
+*.rar
+*.zip
+*.7z
+
+# arquivos temporários
+*.class
+*.log
+
+# arquivos do sistema
+.DS_Store
+Thumbs.db
