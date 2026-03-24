@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 /*
- * Exercício 04
+ * Exercício 07
  * Calcula valor selo.
  */
 public class Uni4Exe07 {
