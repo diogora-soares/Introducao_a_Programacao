@@ -25,7 +25,7 @@ public class Uni4Exe06 {
             }
 
             // Saída
-            switch (genero) {
+            /* switch (genero) {
                 case 'M':
                     System.out.println("Masculino");
                     break;
@@ -37,7 +37,15 @@ public class Uni4Exe06 {
                     break;
                 default:
                     System.out.println("Valor inesperado");
-            }
+            } */
+            String resultado = switch (genero) {
+                case 'M' -> "Masculino";
+                case 'F' -> "Feminino";
+                case 'I' -> "Não Informado";
+                default ->  "Valor inesperado";
+            };
+
+            System.out.println(resultado);
         }
     }
 }
