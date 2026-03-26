@@ -65,7 +65,7 @@ public class Uni4Exe13 {
                 if (sc.hasNextInt()) {
                     carta3 = sc.nextInt();
 
-                    if (carta3 > 0 && carta3 < 14) {
+                    if (carta1 > 0 && carta1 < 14) {
                         break; // válido
                     }
                 } else {
@@ -76,17 +76,17 @@ public class Uni4Exe13 {
             }
 
             // Saída
-            if (carta1 <= 3) {
+            if (carta1 < 4) {
                 contadorCartasBoas++;
             }
-            if (carta2 <= 3) {
+            if (carta2 < 4) {
                 contadorCartasBoas++;
             }
-            if (carta3 <= 3) {
+            if (carta3 < 4) {
                 contadorCartasBoas++;
             }
 
-            switch (contadorCartasBoas) {
+            switch (contadorCartasBoas){
                 case 1 -> System.out.println("TRUCO");
                 case 2 -> System.out.println("SEIS");
                 case 3 -> System.out.println("NOVE");

@@ -2,12 +2,14 @@
 import java.util.Scanner;
 
 /*
- * Exercício 13
- * Leia uma data e determine se ela é válida.
- * Ou seja, verifique se o mês está entre 1 e
- * 12, e se o dia existe naquele mês. Note que
- * fevereiro tem 29 dias em anos bissextos, e 
- * 28 dias em anos não bissextos.
+ * Exercício 15
+ * Elabore um algoritmo para exibir o valor de reajuste 
+ * que um funcionário receberá no seu salário. A empresa
+ * irá conceder 5% de reajuste para o funcionário que for
+ * admitido há até de 12 meses. Para funcionário admitido
+ * entre 13 e 48 meses, irá conceder 7% de reajuste. O seu
+ * algoritmo deve solicitar ao usuário que digite a 
+ * quantidade de meses que o funcionário foi admitido.  
  */
 public class Uni4Exe15 {
 
@@ -16,35 +18,32 @@ public class Uni4Exe15 {
         try (Scanner sc = new Scanner(System.in)) {
 
             // Declaração das variáveis
-            int dia;
-            int mes;
-            int ano;
+            int meses;
 
             // Entrada de dados
-            System.out.print("Insira o dia: ");
-            dia = sc.nextInt();
+            while (true) {
+                System.out.print("Insira quantos meses de empresa: ");
 
-            System.out.print("Insira o mês: ");
-            mes = sc.nextInt();
+                if (sc.hasNextInt()) {
+                    meses = sc.nextInt();
+                    if (meses >= 0) {
+                        break; // válido
+                    }
 
-            System.out.print("Insira o ano: ");
-            ano = sc.nextInt();
+                } else {
+                    sc.next(); // limpa entrada inválida
+                }
+
+                System.err.println("Meses deve ser um inteiro e maior que 0!");
+            }
 
             // Saída
-            if (dia > 0 && dia < 32 && mes > 0 && mes < 13 && ano > 0) {
-                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
-                    System.out.println("Válida");
-                } else if (mes != 2 && dia < 31) {
-                    System.out.println("Válida");
-                } else if (mes == 2 && dia < 29) {
-                    System.out.println("Válida");
-                } else if (dia == 29 && ano % 4 == 0 && !(ano % 100 == 0 && ano % 400 != 0)) {
-                    System.out.println("Válida");
-                } else {
-                    System.out.println("Não válida");
-                }
+            if (meses <= 12) {
+                System.out.println("O funcionário irá receber 5% de reajuste");
+            } else if (meses <= 48) {
+                System.out.println("O funcionário irá receber 7% de reajuste");
             } else {
-                System.out.println("Não válida");
+                System.out.println("Reajuste não informado");
             }
         }
     }
