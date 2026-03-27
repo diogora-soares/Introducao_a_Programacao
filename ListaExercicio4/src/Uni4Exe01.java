@@ -1,25 +1,33 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 01
- * Calcula o salario com hora extra.
+ * 
+ * Objetivo:
+ * Calcular o salário total de um funcionário considerando horas extras.
+ * 
+ * Regras:
+ * - Jornada base mensal: 160 horas
+ * - Horas extras recebem adicional de 50% sobre o valor da hora
  */
 public class Uni4Exe01 {
 
     public static void main(String[] args) {
 
+        // Scanner para entrada de dados
         try (Scanner sc = new Scanner(System.in)) {
 
-            // Declaração das variáveis
-            int qtdHorasTrabalhadasMes;
-            final int jornadaBaseMensal = 160;
-            double valorHoraBase;
-            double salarioExtra;
-            double salarioTotal;
-            final double porcentagemHoraExtra = 0.5;
+            // ===== Declaração das variáveis =====
+            int qtdHorasTrabalhadasMes;     // Total de horas trabalhadas no mês
+            final int jornadaBaseMensal = 160; // Limite de horas sem extra
+            double valorHoraBase;           // Valor da hora normal
+            double salarioExtra;            // Valor recebido pelas horas extras
+            double salarioTotal;            // Salário final
+            final double porcentagemHoraExtra = 0.5; // 50% adicional
 
-            // Entrada de dados
+            // ===== Entrada de dados =====
+
+            // Leitura da quantidade de horas trabalhadas
             while (true) {
                 System.out.print("Insira a quantidade de horas trabalhadas no mês: ");
 
@@ -27,7 +35,7 @@ public class Uni4Exe01 {
                     qtdHorasTrabalhadasMes = sc.nextInt();
 
                     if (qtdHorasTrabalhadasMes > 0) {
-                        break; // válido
+                        break; // valor válido
                     }
                 } else {
                     sc.next(); // limpa entrada inválida
@@ -36,6 +44,7 @@ public class Uni4Exe01 {
                 System.err.println("Valor inválido! Digite um inteiro maior que 0.");
             }
 
+            // Leitura do valor da hora
             while (true) {
                 System.out.print("Insira o valor da hora: ");
 
@@ -43,23 +52,34 @@ public class Uni4Exe01 {
                     valorHoraBase = sc.nextDouble();
 
                     if (valorHoraBase > 0) {
-                        break;
+                        break; // valor válido
                     }
                 } else {
-                    sc.next();
+                    sc.next(); // limpa entrada inválida
                 }
 
                 System.err.println("Valor inválido! Digite um número maior que 0.");
             }
 
-            // Cálculo da Salário
+            // ===== Processamento =====
+
+            // Cálculo do salário base
             salarioTotal = qtdHorasTrabalhadasMes * valorHoraBase;
+
+            // Verifica se houve horas extras
             if (qtdHorasTrabalhadasMes > jornadaBaseMensal) {
-                salarioExtra = (qtdHorasTrabalhadasMes - jornadaBaseMensal) * (valorHoraBase * porcentagemHoraExtra);
+
+                // Calcula apenas as horas que excedem a jornada
+                int horasExtras = qtdHorasTrabalhadasMes - jornadaBaseMensal;
+
+                // Calcula valor adicional das horas extras (50% a mais)
+                salarioExtra = horasExtras * (valorHoraBase * porcentagemHoraExtra);
+
+                // Soma ao salário total
                 salarioTotal = salarioTotal + salarioExtra;
             }
 
-            // Saída
+            // ===== Saída =====
             System.out.printf("Salário total de: R$%.2f", salarioTotal);
         }
     }

@@ -1,11 +1,13 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 10
- * Um casal possui três filhos: Marquinhos, Zezinho e Luluzinha.
- * Faça um algoritmo para ler as idades dos filhos e exibir quem é o caçula da família
- * suponha que não haja empates.
+ * 
+ * Objetivo:
+ * Ler a idade de três filhos e identificar o caçula (mais novo).
+ * 
+ * Observação:
+ * Não há empates.
  */
 public class Uni4Exe10 {
 
@@ -13,12 +15,14 @@ public class Uni4Exe10 {
 
         try (Scanner sc = new Scanner(System.in)) {
 
-            // Declaração das variáveis
-            int idadeM;
-            int idadeZ;
-            int idadeL;
+            // ===== Declaração das variáveis =====
+            int idadeM; // Idade do Marquinhos
+            int idadeZ; // Idade do Zezinho
+            int idadeL; // Idade da Luluzinha
 
-            // Entrada de dados
+            // ===== Entrada de dados =====
+
+            // Marquinhos
             while (true) {
                 System.out.print("Insira a idade do Marquinhos: ");
 
@@ -26,15 +30,16 @@ public class Uni4Exe10 {
                     idadeM = sc.nextInt();
 
                     if (idadeM > 0) {
-                        break; // válido
+                        break;
                     }
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
-                System.err.println("Idade do Marquinhos inválida! Digite um inteiro maior que 0.");
+                System.err.println("Idade do Marquinhos inválida!");
             }
 
+            // Zezinho
             while (true) {
                 System.out.print("Insira a idade do Zezinho: ");
 
@@ -42,15 +47,16 @@ public class Uni4Exe10 {
                     idadeZ = sc.nextInt();
 
                     if (idadeZ > 0) {
-                        break; // válido
+                        break;
                     }
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
-                System.err.println("Idade do Zezinho inválida! Digite um inteiro maior que 0.");
+                System.err.println("Idade do Zezinho inválida!");
             }
 
+            // Luluzinha
             while (true) {
                 System.out.print("Insira a idade da Luluzinha: ");
 
@@ -58,16 +64,18 @@ public class Uni4Exe10 {
                     idadeL = sc.nextInt();
 
                     if (idadeL > 0) {
-                        break; // válido
+                        break;
                     }
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
-                System.err.println("Idade da Luluzinha inválida! Digite um inteiro maior que 0.");
+                System.err.println("Idade da Luluzinha inválida!");
             }
 
-            // Saída
+            // ===== Processamento e Saída =====
+
+            // Verifica quem é o mais novo
             if (idadeM <= idadeL && idadeM <= idadeZ) {
                 System.out.println("Marquinhos é o caçula!");
             } else if (idadeZ <= idadeM && idadeZ <= idadeL) {

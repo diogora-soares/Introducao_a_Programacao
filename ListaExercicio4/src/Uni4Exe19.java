@@ -1,14 +1,8 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 19
- * Dadas as coordenadas (X e Y) de um Ponto, você deve informar em qual quadrante ele está localizado  
- * > 0, se os dois valores forem zero  
- * > 1, se os dois valores forem positivos  
- * > 2, se o x for negativo e o y, positivo 
- * > 3, se os dois valores forem negativos  
- * > 4, se o x for positivo e o y, negativo
+ * Identifica o quadrante de um ponto (x, y)
  */
 public class Uni4Exe19 {
 
@@ -20,13 +14,13 @@ public class Uni4Exe19 {
             int x;
             int y;
 
-            // Entrada de dados
+            // Entrada de dados (validação para X)
             while (true) {
                 System.out.print("Insira o X: ");
 
                 if (sc.hasNextInt()) {
                     x = sc.nextInt();
-                    break; // válido
+                    break; // valor válido
                 } else {
                     sc.next(); // limpa entrada inválida
                 }
@@ -34,12 +28,13 @@ public class Uni4Exe19 {
                 System.err.println("X deve ser inteiro!");
             }
 
+            // Entrada de dados (validação para Y)
             while (true) {
                 System.out.print("Insira o Y: ");
 
                 if (sc.hasNextInt()) {
                     y = sc.nextInt();
-                    break; // válido
+                    break; // valor válido
                 } else {
                     sc.next(); // limpa entrada inválida
                 }
@@ -47,7 +42,7 @@ public class Uni4Exe19 {
                 System.err.println("Y deve ser inteiro!");
             }
 
-            // Saída
+            // Saída - verificação dos quadrantes
             if (x == 0 && y == 0) {
                 System.out.println("Quadrante 0");
             } else if (x > 0 && y > 0) {

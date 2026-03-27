@@ -1,13 +1,13 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 11
- * Escreva um algoritmo para ler o ano de nascimento de 3 irmãos,
- * escrever uma mensagem que indique se eles são TRIGÊMEOS, GÊMEOS,
- * APENAS IRMÃOS. Considere que eles são GÊMEOS se dois deles possuem
- * a mesma idade e o outro diferente dos demais, e apenas irmãos se 
- * todas as idades forem diferentes.
+ * 
+ * Objetivo:
+ * Ler o ano de nascimento de três irmãos e identificar:
+ * - Trigêmeos (todos iguais)
+ * - Gêmeos (dois iguais)
+ * - Apenas irmãos (todos diferentes)
  */
 public class Uni4Exe11 {
 
@@ -15,64 +15,70 @@ public class Uni4Exe11 {
 
         try (Scanner sc = new Scanner(System.in)) {
 
-            // Declaração das variáveis
-            int idadeIrmao1;
-            int idadeIrmao2;
-            int idadeIrmao3;
+            // ===== Declaração das variáveis =====
+            int irmao1;
+            int irmao2;
+            int irmao3;
 
-            // Entrada de dados
+            // ===== Entrada de dados =====
+
+            // Irmão 1
             while (true) {
                 System.out.print("Insira o ano de nascimento do primeiro irmão: ");
 
                 if (sc.hasNextInt()) {
-                    idadeIrmao1 = sc.nextInt();
+                    irmao1 = sc.nextInt();
 
-                    if (idadeIrmao1 > 0) {
-                        break; // válido
+                    if (irmao1 > 0) {
+                        break;
                     }
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
-                System.err.println("Ano de nascimento do primeiro irmão inválida! Digite um inteiro maior que 0.");
+                System.err.println("Valor inválido!");
             }
 
+            // Irmão 2
             while (true) {
                 System.out.print("Insira o ano de nascimento do segundo irmão: ");
 
                 if (sc.hasNextInt()) {
-                    idadeIrmao2 = sc.nextInt();
+                    irmao2 = sc.nextInt();
 
-                    if (idadeIrmao2 > 0) {
-                        break; // válido
+                    if (irmao2 > 0) {
+                        break;
                     }
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
-                System.err.println("Ano de nascimento do segundo irmão inválida! Digite um inteiro maior que 0.");
+                System.err.println("Valor inválido!");
             }
 
+            // Irmão 3
             while (true) {
                 System.out.print("Insira o ano de nascimento do terceiro irmão: ");
 
                 if (sc.hasNextInt()) {
-                    idadeIrmao3 = sc.nextInt();
+                    irmao3 = sc.nextInt();
 
-                    if (idadeIrmao3 > 0) {
-                        break; // válido
+                    if (irmao3 > 0) {
+                        break;
                     }
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
-                System.err.println("Ano de nascimento do terceiro irmão inválida! Digite um inteiro maior que 0.");
+                System.err.println("Valor inválido!");
             }
 
-            // Saída
-            if (idadeIrmao1 == idadeIrmao3 && idadeIrmao1 == idadeIrmao2) {
-                System.out.println("Trigemeos");
-            } else if (idadeIrmao1 == idadeIrmao2 || idadeIrmao1 == idadeIrmao3 || idadeIrmao2 == idadeIrmao3) {
+            // ===== Processamento e Saída =====
+
+            // Verifica os casos
+            if (irmao1 == irmao2 && irmao1 == irmao3) {
+                System.out.println("Trigêmeos");
+            } else if (irmao1 == irmao2 || irmao1 == irmao3 || irmao2 == irmao3) {
                 System.out.println("Gêmeos");
             } else {
                 System.out.println("Apenas irmãos");

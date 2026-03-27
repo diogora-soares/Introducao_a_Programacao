@@ -1,9 +1,10 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 08
- * Retorna se valor é uma vogal.
+ * 
+ * Objetivo:
+ * Verificar se um caractere informado é uma vogal.
  */
 public class Uni4Exe08 {
 
@@ -11,14 +12,18 @@ public class Uni4Exe08 {
 
         try (Scanner sc = new Scanner(System.in)) {
 
-            // Declaração das variáveis
-            char letra;
+            // ===== Declaração das variáveis =====
+            char letra; // Caractere informado pelo usuário
 
-            // Entrada de dados
-            System.out.println("Insira um caracter para saber se é uma vogal: ");
+            // ===== Entrada de dados =====
+            System.out.print("Insira um caractere para saber se é uma vogal: ");
+
+            // Lê o caractere e converte para maiúsculo
             letra = Character.toUpperCase(sc.next().charAt(0));
 
-            // Saída
+            // ===== Processamento e Saída =====
+
+            // Verifica se a letra é uma vogal
             if (letra == 'A' || letra == 'E' || letra == 'I' || letra == 'O' || letra == 'U') {
                 System.out.println("Seu valor é uma vogal!");
             } else {

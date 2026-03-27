@@ -1,13 +1,11 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 14
- * Leia uma data e determine se ela é válida.
- * Ou seja, verifique se o mês está entre 1 e
- * 12, e se o dia existe naquele mês. Note que
- * fevereiro tem 29 dias em anos bissextos, e 
- * 28 dias em anos não bissextos.
+ * 
+ * Objetivo:
+ * Verificar se uma data é válida.
+ * Considera anos bissextos para fevereiro.
  */
 public class Uni4Exe14 {
 
@@ -15,12 +13,12 @@ public class Uni4Exe14 {
 
         try (Scanner sc = new Scanner(System.in)) {
 
-            // Declaração das variáveis
+            // ===== Declaração das variáveis =====
             int dia;
             int mes;
             int ano;
 
-            // Entrada de dados
+            // ===== Entrada de dados =====
             System.out.print("Insira o dia: ");
             dia = sc.nextInt();
 
@@ -30,19 +28,37 @@ public class Uni4Exe14 {
             System.out.print("Insira o ano: ");
             ano = sc.nextInt();
 
-            // Saída
+            // ===== Processamento e Saída =====
+
+            // Validação básica
             if (dia > 0 && dia < 32 && mes > 0 && mes < 13 && ano > 0) {
-                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
+
+                // Meses com 31 dias
+                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 ||
+                    mes == 8 || mes == 10 || mes == 12) {
+
                     System.out.println("Válida");
+
+                // Meses com 30 dias
                 } else if (mes != 2 && dia < 31) {
+
                     System.out.println("Válida");
+
+                // Fevereiro comum
                 } else if (mes == 2 && dia < 29) {
+
                     System.out.println("Válida");
-                } else if (dia == 29 && ano % 4 == 0 && !(ano % 100 == 0 && ano % 400 != 0)) {
+
+                // Fevereiro bissexto
+                } else if (dia == 29 && ano % 4 == 0 &&
+                          !(ano % 100 == 0 && ano % 400 != 0)) {
+
                     System.out.println("Válida");
+
                 } else {
                     System.out.println("Não válida");
                 }
+
             } else {
                 System.out.println("Não válida");
             }

@@ -1,22 +1,11 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 18
- * Uma loja que trabalha com crediário funciona da 
- * seguinte maneira: se o pagamento ocorre até o 
- * dia do vencimento, o cliente ganha 10% de 
- * desconto e é avisado que o pagamento está em dia.
- * Se o pagamento é realizado até cinco dias após 
- * o vencimento o cliente perde o desconto, e se o 
- * pagamento atrasa mais de cinco dias, é cobrada 
- * uma multa de 2% por cada dia de atraso. Faça um
- * algoritmo que leia o dia do vencimento, o dia 
- * do pagamento e o valor da prestação e calcule o
- *  valor a ser pago pelo cliente, exibindo as 
- * devidas mensagens. Suponha que todo vencimento 
- * ocorre até o dia dez de cada mês e os clientes 
- * nunca deixam para pagar no mês seguinte.  
+ * Regras:
+ * - Até o vencimento → 10% de desconto
+ * - Até 5 dias após → sem desconto e sem multa
+ * - Mais de 5 dias → multa de 2% por dia de atraso
  */
 public class Uni4Exe18 {
 
@@ -40,11 +29,10 @@ public class Uni4Exe18 {
                 if (sc.hasNextInt()) {
                     diaVencimento = sc.nextInt();
                     if (diaVencimento > 0 && diaVencimento < 26) {
-                        break; // válido
+                        break;
                     }
-
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
                 System.err.println("Dia do vencimento deve ser maior que 0 e menor que 26!");
@@ -55,12 +43,11 @@ public class Uni4Exe18 {
 
                 if (sc.hasNextInt()) {
                     diaPagamento = sc.nextInt();
-                    if (diaPagamento >= 0 && diaPagamento < 32) {
-                        break; // válido
+                    if (diaPagamento > 0 && diaPagamento < 32) {
+                        break;
                     }
-
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
                 System.err.println("Dia do pagamento deve ser maior que 0 e menor que 32!");
@@ -72,30 +59,33 @@ public class Uni4Exe18 {
                 if (sc.hasNextDouble()) {
                     valorPrestacao = sc.nextDouble();
                     if (valorPrestacao > 0) {
-                        break; // válido
+                        break;
                     }
-
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
                 System.err.println("Valor da prestação deve ser maior que 0!");
             }
 
-            // Saída
+            // Processamento
             diasAtraso = diaPagamento - diaVencimento;
-            System.out.println(diasAtraso);
+
+            // Saída
             if (diasAtraso <= 0) {
-                if (diasAtraso <= -10) {
-                    totalPrestacao = valorPrestacao - (valorPrestacao * descontoPontualidade);
-                } else {
-                    totalPrestacao = valorPrestacao;
-                }
-                System.out.printf("O pagamento está em dia. O valor da prestação é R$%.2f", totalPrestacao);
+                // Pagamento em dia ou antecipado → ganha desconto
+                totalPrestacao = valorPrestacao - (valorPrestacao * descontoPontualidade);
+                System.out.printf("Pagamento em dia! Valor com desconto: R$%.2f", totalPrestacao);
+
+            } else if (diasAtraso <= 5) {
+                // Até 5 dias de atraso → sem desconto e sem multa
+                totalPrestacao = valorPrestacao;
+                System.out.printf("Pagamento com pequeno atraso. Valor normal: R$%.2f", totalPrestacao);
+
             } else {
+                // Mais de 5 dias → aplica multa por dia
                 totalPrestacao = valorPrestacao + (valorPrestacao * multa * diasAtraso);
-                System.out.printf("O pagamento atrasdo. Multa de 2%% por dia. O valor da prestação é R$%.2f",
-                        totalPrestacao);
+                System.out.printf("Pagamento atrasado! Multa aplicada. Valor: R$%.2f", totalPrestacao);
             }
         }
     }

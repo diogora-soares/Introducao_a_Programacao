@@ -1,9 +1,10 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 09
- * Informe dois valorem e retorne se eles são múltiplos ou não.
+ * 
+ * Objetivo:
+ * Ler dois valores inteiros e verificar se são múltiplos.
  */
 public class Uni4Exe09 {
 
@@ -11,13 +12,15 @@ public class Uni4Exe09 {
 
         try (Scanner sc = new Scanner(System.in)) {
 
-            // Declaração das variáveis
-            int valor1;
-            int valor2;
+            // ===== Declaração das variáveis =====
+            int valor1; // Primeiro número
+            int valor2; // Segundo número
 
-            // Entrada de dados
+            // ===== Entrada de dados =====
+
+            // Leitura do primeiro valor
             while (true) {
-                System.out.print("Insira o valor desejado: ");
+                System.out.print("Insira o primeiro valor: ");
 
                 if (sc.hasNextInt()) {
                     valor1 = sc.nextInt();
@@ -32,8 +35,9 @@ public class Uni4Exe09 {
                 System.err.println("Valor1 inválido! Digite um inteiro maior que 0.");
             }
 
+            // Leitura do segundo valor
             while (true) {
-                System.out.print("Insira o valor desejado: ");
+                System.out.print("Insira o segundo valor: ");
 
                 if (sc.hasNextInt()) {
                     valor2 = sc.nextInt();
@@ -48,12 +52,13 @@ public class Uni4Exe09 {
                 System.err.println("Valor2 inválido! Digite um inteiro maior que 0.");
             }
 
-            // Saída
+            // ===== Processamento e Saída =====
+
+            // Verifica se valor1 é múltiplo de valor2
             if (valor1 % valor2 == 0) {
                 System.out.println("Múltiplos");
-
             } else {
-                System.out.println("Não são múltiplos ");
+                System.out.println("Não são múltiplos");
             }
         }
     }

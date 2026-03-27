@@ -1,15 +1,11 @@
-
 import java.util.Scanner;
 
 /*
  * Exercício 15
- * Elabore um algoritmo para exibir o valor de reajuste 
- * que um funcionário receberá no seu salário. A empresa
- * irá conceder 5% de reajuste para o funcionário que for
- * admitido há até de 12 meses. Para funcionário admitido
- * entre 13 e 48 meses, irá conceder 7% de reajuste. O seu
- * algoritmo deve solicitar ao usuário que digite a 
- * quantidade de meses que o funcionário foi admitido.  
+ * 
+ * Objetivo:
+ * Determinar o percentual de reajuste salarial com base
+ * no tempo de empresa (em meses).
  */
 public class Uni4Exe15 {
 
@@ -17,27 +13,27 @@ public class Uni4Exe15 {
 
         try (Scanner sc = new Scanner(System.in)) {
 
-            // Declaração das variáveis
+            // ===== Declaração das variáveis =====
             int meses;
 
-            // Entrada de dados
+            // ===== Entrada de dados =====
             while (true) {
                 System.out.print("Insira quantos meses de empresa: ");
 
                 if (sc.hasNextInt()) {
                     meses = sc.nextInt();
-                    if (meses >= 0) {
-                        break; // válido
-                    }
 
+                    if (meses >= 0) {
+                        break;
+                    }
                 } else {
-                    sc.next(); // limpa entrada inválida
+                    sc.next();
                 }
 
-                System.err.println("Meses deve ser um inteiro e maior que 0!");
+                System.err.println("Valor inválido!");
             }
 
-            // Saída
+            // ===== Saída =====
             if (meses <= 12) {
                 System.out.println("O funcionário irá receber 5% de reajuste");
             } else if (meses <= 48) {
