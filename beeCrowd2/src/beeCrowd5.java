@@ -8,7 +8,6 @@ public class beeCrowd5 {
 
         int pontosX = 0;
         int pontosY = 0;
-        int pontosZ = 0;
 
         int pos1;
         int pos2;
@@ -27,14 +26,10 @@ public class beeCrowd5 {
 
             if (x > z) {
                 pontosX++;
-            } else {
-                pontosZ++;
             }
 
             if (y > z) {
                 pontosY++;
-            } else {
-                pontosZ++;
             }
 
             if (pontosX == 2) {
