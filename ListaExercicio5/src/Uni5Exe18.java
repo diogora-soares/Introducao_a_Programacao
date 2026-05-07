@@ -46,7 +46,7 @@ public class Uni5Exe18 {
                 porcentagem9 = (canal9 * 100.0) / totalPessoas;
                 porcentagem12 = (canal12 * 100.0) / totalPessoas;
 
-                System.out.printf("Percentual de audiência do canal 5: %.2f%% %n", porcentagem4);
+                System.out.printf("Percentual de audiência do canal 4: %.2f%% %n", porcentagem4);
                 System.out.printf("Percentual de audiência do canal 5: %.2f%% %n", porcentagem5);
                 System.out.printf("Percentual de audiência do canal 9: %.2f%% %n", porcentagem9);
                 System.out.printf("Percentual de audiência do canal 12: %.2f%% %n", porcentagem12);

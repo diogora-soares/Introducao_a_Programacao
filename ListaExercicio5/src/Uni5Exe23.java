@@ -43,7 +43,7 @@ public class Uni5Exe23 {
                 System.out.printf("Total de vendas: R$ %.2f%n", totalVendas);
                 System.out.printf("Salário: R$ %.2f%n", salario);
 
-                System.out.print("%nDeseja digitar os dados de mais um vendedor? (s/n): ");
+                System.out.printf("%nDeseja digitar os dados de mais um vendedor? (s/n): ");
                 opcao = sc.next().toLowerCase().charAt(0);
             }
 

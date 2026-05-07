@@ -13,11 +13,13 @@ public class Uni5Exe09 {
         try (Scanner sc = new Scanner(System.in)) {
             System.out.printf("Informe quantos alunos deseja inserir: ");
             n = sc.nextInt();
+            sc.nextLine();
             for (int i = 0; i < n; i++) {
                 System.out.printf("Informe o nome do aluno: ");
-                nome = sc.next();
+                nome = sc.nextLine();
                 System.out.printf("Informe a idade do aluno: ");
                 idade = sc.nextInt();
+                sc.nextLine();
 
                 if (idade == 18) {
                     if (nome18.isEmpty()) {
