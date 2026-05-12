@@ -41,24 +41,12 @@ public class ExemploVetor {
 
             System.out.printf("%nMaior: %.2f%nMenor: %.2f%n", maior, menor);
 
-<<<<<<< HEAD
             for (int x = 0; x < notas.length - 1; x++) {
                 for (int y = 0; y < notas.length - 1 - x; y++) {
                     if (notas[y] < notas[y+1]) {
                         guardaNota = notas[y];
                         notas[y] = notas[y + 1];
                         notas[y + 1] = guardaNota;
-=======
-            // Ordenação: para cada elemento x, compara com todos os outros y
-            // Se x for menor que y, troca os dois de posição
-            // Ao final, o vetor fica ordenado do menor para o maior (crescente)
-            for (int x = 0; x < notas.length; x++) {
-                for (int y = 0; y < notas.length; y++) {
-                    if (notas[x] < notas[y]) {
-                        guardaNota = notas[y];
-                        notas[y] = notas[x];
-                        notas[x] = guardaNota;
->>>>>>> 1a3b9985d51412dedcad68e630db7e6f15c220c2
                     }
                 }
             }
