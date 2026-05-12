@@ -49,14 +49,12 @@ public class ExemploVetor {
             }
             System.out.printf("Maior: %.2f %nMenor: %.2f", maior, menor); */
 
-            for (int x = 0; x < 10; x++) {
-                for (int y = 0; y < 10; y++) {
-                    if (notas[x] <= notas[y]) {
-                        
+            for (int x = 0; x < notas.length - 1; x++) {
+                for (int y = 0; y < notas.length - 1 - x; y++) {
+                    if (notas[y] < notas[y+1]) {
                         guardaNota = notas[y];
-                        notas[y] = notas[x];
-                        notas[x] = guardaNota;
-                        y = 10;
+                        notas[y] = notas[y + 1];
+                        notas[y + 1] = guardaNota;
                     }
                 }
             }
