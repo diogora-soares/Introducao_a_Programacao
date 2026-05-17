@@ -99,7 +99,7 @@ public class Uni6Exe09 {
         return quantidadeMulheresMais50NotaAcimaMedia;
     }
 
-    public static void exibirResultadoPesquisa(double media, double mediaHomens, double notaMulherMaisJovem,
+    public static void exibirResultadoPesquisa(double media, double mediaHomens, int notaMulherMaisJovem,
             int quantidadeMulheresMais50NotaAcimaMedia) {
         System.out.println("Resultados da pesquisa:");
         System.out.printf("Média das notas: %.2f %n", media);
